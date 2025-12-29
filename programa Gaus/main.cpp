@@ -42,7 +42,53 @@ int main()
     double multiplicador;
 
     for(int i=0;i<n - 1;i++)
-    {   int aux=i+1;
+    {   if(filaColumna[i][i]== 0)
+        {   //busca el mayor de su misma columna
+            int cambio;
+            double valor = filaColumna[i][i];
+            for(int m=i;m<n;m++)
+            {
+
+                if( valor < filaColumna[m][i])
+                    valor =filaColumna[m][i];
+                    cambio=m;
+            }
+            if(valor ==0)
+            {   cout<<"ingrese a esta condiciony voy a romper la condicion\n";
+                break;
+                cout<<"ingrese a este lugar osea que no rompe la condicion\n";
+            }
+            //hacer el cambio de ecuaciones entre el mayor y el primero
+            for(int m =0;m<n;m++)
+            {   cout<<filaColumna[i][m]<<""<<filaColumna[0][0]<<"\n";
+                filaColumna[i][m]=filaColumna[i][m]+filaColumna[cambio][m];
+                cout<<filaColumna[i][m]<<"\n";
+                filaColumna[cambio][m]=filaColumna[i][m] - filaColumna[cambio][m];
+                cout<<filaColumna[cambio][m]<<"\n";
+                filaColumna[i][m]=filaColumna[i][m] - filaColumna[cambio][m];
+                cout<<filaColumna[i][m]<<"\n";
+                cout<<"despues del cambio "<<m<<"===========\n";
+                        for(int k=0;k<n;k++)
+                        {   for(int l=0;l<n;l++)
+                            {   cout<<filaColumna[k][l]<<"\t";
+                            }
+                            cout<<b[k]<<"\n";
+
+                        }
+            }
+            b[i]=       b[i]+b[cambio];
+            b[cambio]=  b[i]-b[cambio];
+            b[i]=       b[i]-b[cambio];
+
+                       cout<<"despues del cambio =====final======\n";
+                        for(int k=0;k<n;k++)
+                        {   for(int l=0;l<n;l++)
+                            {   cout<<filaColumna[k][l]<<"\t";
+                            }
+                            cout<<b[k]<<"\n";
+
+                        }
+        }
         for(int aux = i + 1; aux < n; aux++)
         {   cout<<aux<<"\n";
                multiplicador = filaColumna[aux][i]/filaColumna[i][i];
