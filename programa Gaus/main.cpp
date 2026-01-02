@@ -17,6 +17,8 @@ int main()
     if(n>MAX)
         return 1;
     double filaColumna[MAX][MAX]; //declarando variable
+
+    // Ingreso de variables de la matriz
     for(int i=0;i<n;i++)
     {   for(int j=0;j<n;j++)
         {   cout<<"Ingrese la fila "<<i+1<<" y la columna "<<j+1<<"\n";
@@ -24,6 +26,7 @@ int main()
         }
 
     }
+    //Ingreso de variables del vector resultado
     cout<<"Ingrese el vector B \n";
     double b[MAX]; //resultado de la matriz A*x=b;
     for(int i=0;i<n;i++)
@@ -41,15 +44,18 @@ int main()
     }
     double multiplicador;
 
+    //para ordenar los datos de forma escalonada
+
     for(int i=0;i<n - 1;i++)
-    {   if(filaColumna[i][i]== 0)
+    {    // Busca hacer un cambio de filas si esa fila se aproxima a cero
+         if(filaColumna[i][i]== 0)
         {   //busca el mayor de su misma columna
             int cambio;
             double valor = filaColumna[i][i];
             for(int m=i;m<n;m++)
             {
 
-                if( valor < filaColumna[m][i])
+                if( valor < filaColumna[m][i]||valor > filaColumna[m][i])
                     valor =filaColumna[m][i];
                     cambio=m;
             }
