@@ -1,1 +1,27 @@
+#include <iostream>
 
+using namespace std;
+
+int main()
+{   double n;
+    int MAX=200;
+    double x[MAX],y[MAX],X,Y;
+    double mx=0,my=0,mxy=0,mx2=0,b,a;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {   cin>>x[i];
+        cin>>y[i];
+    }
+    for(int i=0;i<n;i++)
+    {   mx+=x[i];
+        my+=y[i];
+        mxy+=x[i]*y[i];
+        mx2 += x[i]*x[i];
+    }
+    b = (n * mxy - mx * my) / (n * mx2 - mx * mx);
+    a = (my - b * mx) / n;
+    cout<<mx<<" "<<my<<" "<<mxy<<" "<<mx2<<" \n";
+   cout<<"la recta es: "<<a<<"+"<<b<<"x\n";
+    return 0;
+}   // 4 1 2 2 4 3 5 4 7
+    // 5 2 4 4 6 5 7 7 8 9 10
