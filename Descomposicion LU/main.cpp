@@ -146,7 +146,8 @@ int main()
                             cout<<b[k]<<"\n";
 
                         }
-            }   b[aux]=b[aux] - (multiplicador * b[i]);
+            }   // en este caso no se toca el vector resultado al momento de reducir
+                //b[aux]=b[aux] - (multiplicador * b[i]);
                 cout<<"sali del bucle de que opera filas aux="<<aux<<"\n";
 
         }   cout<<"sali del bucle que controla el multiplicador en i="<<i<<"\n";
@@ -165,7 +166,7 @@ int main()
     {   for(int j=0;j<n;j++)
         {   cout<<fcL[i][j]<<"\t";
         }
-        cout<<"\n";
+        cout<<b[i]<<"\n";
 
     }
     cout<<"Los valores fueron ordenados de forma escalonada\n";//ejercicio D2
@@ -175,10 +176,12 @@ int main()
     //RECORRIDO para hallar los valores a,b,c,... o vector auxiliar m
     for(int i=0;i < n ;i++)
     {   double suma = 0;                //i=2
-        for(int j= 0;j<i;j++)           //j=0,1
-        {   suma= suma + fcL[i][j]*m[j];// suma= -117
+        for(int j= 0;j<i;j++)           //j=0
+        {   suma= suma + fcL[i][j]*m[j];// suma=9
+            cout<<"Valor sumando es = "<<suma<< "\n";
         }
-        m[i]= (b[i]- suma )/ fcL[i][i];// m0=9,m1=-12
+        m[i]= (b[i]- suma )/ fcL[i][i];// m0=3,m1=5;m2=
+        cout<<"ESTE ES EL VALOR DE M"<<i<<" "<<m[i]<< "\n";
     }
 
     for(int j=0;j<n;j++)
@@ -201,3 +204,4 @@ int main()
 }
 //  3 3 2 -1 6 5 4 9 -3 2 9 24 15 D2
 // 4 8 3 -1 2 0 5 4 -3 0 0 7 2 0 0 0 6 20 10 15 12 D1
+// LU 3 1 4 -2 3 -2 5 2 3 1 3 14 11
